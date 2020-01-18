@@ -4,7 +4,7 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name="com.montini.teamsports.model.Player" table="player">
+    <class name="vgtu.ignas.teamsports.model.Player" table="player">
 
         <meta attribute="class-description">
             This class contains the player detail.
@@ -23,7 +23,7 @@
 
         <set  name="reviewSet" inverse="true" cascade="all">
             <key   column="player_id" not-null="true" />
-            <one-to-many class="com.montini.teamsports.model.Review"/>
+            <one-to-many class="vgtu.ignas.teamsports.model.Review"/>
         </set>
 
         <set name="playEvents" table="player_playevent"
@@ -31,7 +31,7 @@
             <key>
                 <column  name="player_id" not-null="true" />
             </key>
-            <many-to-many entity-name="com.montini.teamsports.model.PlayEvent">
+            <many-to-many entity-name="vgtu.ignas.teamsports.model.PlayEvent">
                 <column name="playevent_id" not-null="true" />
             </many-to-many>
 

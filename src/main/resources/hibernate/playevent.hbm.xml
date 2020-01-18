@@ -4,10 +4,10 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="com.montini.teamsports.model">
-    <class name = "com.montini.teamsports.model.PlayEvent" table = "playevent">
+    <class name = "vgtu.ignas.teamsports.model.PlayEvent" table = "playevent">
         <meta attribute = "class-description">This class contains the play events detail.</meta>
         <id name = "id" type = "int" column = "playevent_id"><generator class="identity"/></id>
-        <many-to-one name="location" class="Location" column="location_id" not-null="true" lazy="false" cascade="all"/>
+        <many-to-one name="location" class="vgtu.ignas.teamsports.model.Location" column="location_id" not-null="true" lazy="false" cascade="all"/>
         <property name = "eventDate" column = "event_Date" type = "java.sql.Date"/>
         <property name = "eventTime" column = "event_Time" type = "java.sql.Time"/>
         <property name = "title" column = "title" type = "string"/>
@@ -21,14 +21,14 @@
             <key>
                 <column name="playevent_id" not-null="true"   />
             </key>
-            <many-to-many entity-name="com.montini.teamsports.model.Player">
+            <many-to-many entity-name="vgtu.ignas.teamsports.model.Player">
                 <column name="player_id" not-null="true" />
             </many-to-many>
         </set>
 
         <set name="reviews" table="playevent_review"  lazy="false" cascade="all">
             <key column="playevent_id" not-null="true" />
-            <many-to-many column="review_id" class="Review" unique="true"/>
+            <many-to-many column="review_id" class="vgtu.ignas.teamsports.model.Review" unique="true"/>
         </set>
 
     </class>

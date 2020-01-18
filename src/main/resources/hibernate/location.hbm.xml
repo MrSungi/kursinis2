@@ -4,7 +4,7 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name = "com.montini.teamsports.model.Location" table = "location">
+    <class name = "vgtu.ignas.teamsports.model.Location" table = "location">
 
         <meta attribute = "class-description">
             This class contains the location detail.
@@ -20,7 +20,7 @@
         <property name = "freeCourts" column = "free_Courts" type = "int"/>
         <set name="playEventSet" inverse="true" cascade="all">
             <key  column="location_id"  not-null="true"   />
-            <one-to-many class="com.montini.teamsports.model.PlayEvent"/>
+            <one-to-many class="vgtu.ignas.teamsports.model.PlayEvent"/>
         </set>
 
     </class>

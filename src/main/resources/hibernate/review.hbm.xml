@@ -4,7 +4,7 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="com.montini.teamsports.model">
-    <class name="Review" table="review">
+    <class name="vgtu.ignas.teamsports.model.Review" table="review">
         <id name="id" column="review_id">
             <generator class="identity"/>
         </id>
@@ -12,7 +12,7 @@
         <property name="timestamp" column="timestamp" type="timestamp"/>
         <property name="description" column="description" type="string"/>
 
-        <many-to-one name="player" class="Player" column="player_id" not-null="true" lazy="false" cascade="all"/>
+        <many-to-one name="player" class="vgtu.ignas.teamsports.model.Player" column="player_id" not-null="true" lazy="false" cascade="all"/>
 
 
         <join table="playevent_review" inverse="true">
