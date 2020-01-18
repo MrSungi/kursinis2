@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="fragments/header"></head>
+
+    <body id="page-top"
+          style="font-family: Nunito, sans-serif;background-color: rgb(33,37,41);color: rgb(218,218,218);">
+
+        <nav th:replace="fragments/navbar"></nav>
+
+        <header class="masthead"
+                style="background-color: rgba(0,0,0,0.51);color: rgb(255,255,255);background-size: auto;background-repeat: no-repeat;"></header>
+
+        <th:block th:replace="fragments/footer"></th:block>
+
+        <th:block th:replace="fragments/modals :: modalSignIn"></th:block>
+
+        <th:block th:replace="fragments/scripts"></th:block>
+    </body>
+
+</html>

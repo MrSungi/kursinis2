@@ -1,0 +1,35 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.montini.teamsports.model">
+    <class name = "com.montini.teamsports.model.PlayEvent" table = "playevent">
+        <meta attribute = "class-description">This class contains the play events detail.</meta>
+        <id name = "id" type = "int" column = "playevent_id"><generator class="identity"/></id>
+        <many-to-one name="location" class="Location" column="location_id" not-null="true" lazy="false" cascade="all"/>
+        <property name = "eventDate" column = "event_Date" type = "java.sql.Date"/>
+        <property name = "eventTime" column = "event_Time" type = "java.sql.Time"/>
+        <property name = "title" column = "title" type = "string"/>
+        <property name = "gameType" column = "game_Type" type = "int"/>
+        <property name = "freeSlots" column = "free_Slots" type = "int"/>
+
+
+
+        <set name="players" table="player_playevent"
+             inverse="false" lazy="false" fetch="select" cascade="all" >
+            <key>
+                <column name="playevent_id" not-null="true"   />
+            </key>
+            <many-to-many entity-name="com.montini.teamsports.model.Player">
+                <column name="player_id" not-null="true" />
+            </many-to-many>
+        </set>
+
+        <set name="reviews" table="playevent_review"  lazy="false" cascade="all">
+            <key column="playevent_id" not-null="true" />
+            <many-to-many column="review_id" class="Review" unique="true"/>
+        </set>
+
+    </class>
+</hibernate-mapping>

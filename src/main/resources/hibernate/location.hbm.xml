@@ -1,0 +1,27 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name = "com.montini.teamsports.model.Location" table = "location">
+
+        <meta attribute = "class-description">
+            This class contains the location detail.
+        </meta>
+
+        <id name = "id" type = "int" column = "location_id">
+        <generator class="identity"/>
+    </id>
+
+        <property name = "address" column = "address" type = "string"/>
+        <property name = "name" column = "name" type = "string"/>
+        <property name = "maxCourts" column = "max_Courts" type = "int"/>
+        <property name = "freeCourts" column = "free_Courts" type = "int"/>
+        <set name="playEventSet" inverse="true" cascade="all">
+            <key  column="location_id"  not-null="true"   />
+            <one-to-many class="com.montini.teamsports.model.PlayEvent"/>
+        </set>
+
+    </class>
+</hibernate-mapping>
